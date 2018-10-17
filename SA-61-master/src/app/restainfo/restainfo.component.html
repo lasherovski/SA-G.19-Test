@@ -25,7 +25,7 @@
           <br/>
           <img class="commentImg" src="{{comment.img}}">
           <br/>
-          <div style="color:red">Rating {{comment.rating}}/5</div>
+          <mat-star-rating [rating]="comment.rating"  [starCount]="5" [color]="accent"></mat-star-rating>
           <button mat-fab color="warn" (click)="delete(comment.cmid)" class="deletebutton">Delete</button>
         </div>
       </div>
@@ -54,16 +54,15 @@
     </mat-select>
   </mat-form-field>
 
-  <mat-form-field>
-    <mat-select placeholder="Rating" [(ngModel)]="mycomment.ratingSelect" >
-      <mat-option *ngFor="let rating of ratings" [value]="rating">{{rating}}</mat-option>
-    </mat-select>
-  </mat-form-field>
+
   <br/>
     <mat-form-field>
       <input matInput placeholder="url รูปภาพ.jpg" [(ngModel)]="mycomment.imgSelect" >
     </mat-form-field>
     <a mat-raised-button href="//imgbb.com" target="_blank" color="accent" >เว็บฝากรูป</a>
+    <br/>
+    <mat-star-rating [rating]="rating"  [starCount]="5" [color]="accent" (ratingUpdated)="onRatingChanged($event)"></mat-star-rating>
+    <br/>
     <br/>
   <button mat-flat-button (click)="save()" color="primary">Comment</button>
 
