@@ -9,11 +9,6 @@ import {RouterModule, Routes}from '@angular/router';
 import {RestaComponent}from './resta/resta.component';
 import {RestaService}from './resta.service';
 import {RestainfoComponent}from './restainfo/restainfo.component';
-import {StarRatingComponent}from './star-rating/star-rating.component';
-import {MatTooltipModule} from '@angular/material/tooltip';
-import {MatIconModule} from '@angular/material/icon';
-import {MatSnackBarModule} from '@angular/material/snack-bar';
-
 const appRoutes: Routes = [
 {
 path: '',
@@ -35,8 +30,7 @@ component: RestainfoComponent
   declarations: [
     AppComponent,
     RestaComponent,
-    RestainfoComponent,
-    StarRatingComponent
+    RestainfoComponent
   ],
   imports: [
     BrowserModule,
@@ -49,9 +43,6 @@ component: RestainfoComponent
     MatToolbarModule,
     FormsModule,
     MatSelectModule,
-    MatTooltipModule,
-    MatIconModule,
-    MatSnackBarModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [RestaService],

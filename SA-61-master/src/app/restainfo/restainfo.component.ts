@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RestaService } from '../resta.service';
 import { Observable } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
@@ -40,11 +40,11 @@ restaurantnumber: any;
     this.members = data;
     })}
 
+  ratings: number[] = [
+    1,2,3,4,5
+  ];
 
-
-  @Input('rating') rating: number;
-  @Input('starCount') starCount: number;
-  @Input('color') color: string;
+ 
   
   usernameSelect:''
 
@@ -55,9 +55,8 @@ restaurantnumber: any;
   }
 
 
-
   save(){
-    if(this.mycomment.textSelect === '' || this.rating === undefined || this.mycomment.imgSelect === '' || this.usernameSelect === '')
+    if(this.mycomment.textSelect === '' || this.mycomment.ratingSelect === ''|| this.mycomment.imgSelect === '' || this.usernameSelect === '')
     alert('กรุณากรอกข้อมูลให้ครบถ้วน');
     else{
     this.httpClient.post('http://localhost:8080/comment/create/'+this.restaurantnumber+ '/'+this.usernameSelect+'/',this.mycomment).subscribe(
@@ -85,10 +84,5 @@ delete(cmid){
   
 );
 }
-onRatingChanged(rating){
-	console.log(rating);
-  this.rating = rating;
-  this.mycomment.ratingSelect = rating;
-}
-  
+
 }

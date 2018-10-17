@@ -18,8 +18,6 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-
-
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
 public class CommentController {
@@ -65,9 +63,7 @@ public class CommentController {
 
 
     @GetMapping("/comments")
-
     public List<Comment> showAllComment() {
-
         return commentRepository.findAll().stream().collect(Collectors.toList());
     }
 
